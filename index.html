@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Szlakiem Mikołaja Kopernika - QUIZ</title>
+    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <link rel="stylesheet" href="style_new.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    
+    
+</head>
+<body>
+    <section id="startGame">
+            <div class="howToPlayPage overPage">
+                <ol>
+                    <li>Dodaj odpowiednią ilość graczy (nie większą niż 5) i kliknij przycisk "Zagraj w grę"</li>
+                    <li>Zaczną wyświetlać się pytania dla każdego uczestnika z osobna według kolejności wpisania do formularza</li>
+                    <li>Każdy gracz ma 30 sekund na zaznaczenie odpowiedzi </li>
+                    <li>Każdy gracz może użyć każdego koła ratunkowego tylko raz w całej grze </li>
+                    <li>Za trafioną odpowiedź gracz dostaje na swoje konto 5 punktów, a za błędną 0 punktów</li>
+                    <li>Po wybraniu prawidłowej lub błędnej odpowiedzi, naciśnij przycisk "Następne pytanie".</li>
+                </ol>
+                <div class="close"></div>
+            </div> 
+            <div class="authorsPage overPage">
+                <h3>Autorzy:
+                    <ul>
+                        <li>Jakub Trzeciak</li>
+                        <li>Tomasz Szydłowski</li>
+                    </ul>
+                </h3>
+                <div class="about">
+                    <h4>O grze</h4>
+                    <p>Witaj w świecie Mikołaja Kopernika! Możesz tu sprawdzić swoją wiedzę na temat tego słynnego astronoma. Gra powstała z myślą o uczczeniu tej wielkiej osobistości i jego dokonań.</p>
+                    <p>Tak więc nie czekaj i zacznij przygodę już teraz!</p>
+                </div>
+                <div class="close"></div>
+            </div> 
+            <input type="button" id="howToPlay" class="overPageButton" value="Jak grać?">
+            <input type="button" class="authors overPageButton" value="Autorzy">
+            <div class="helloBanner">
+                <h1>Szlakiem Mikołaja Kopernika<span class="lowText"> quiz wiedzy</span></h1>
+                <input type="submit" class="submit" value="Zagraj w grę" id="startGameButton"> 
+            </div>
+            
+        
+            <div class="addUsersPage">
+                <form class="form">
+                    <p class="userPar">Wprowadź uczestników</p>
+                    <input type="text" name="number1" class="fUser" placeholder="Podaj 1 uczestnika" id="num1"><a href="#num2" class="addUser" title="Dodaj gracza">&#43;</a>
+                </form>
+                <input type="button" value="Dalej" id="nextStep">
+                <div class="back"></div>
+            </div>
+    </section>
+
+
+
+   <section class="mainGame">
+        <div class="appendHere">
+            <div class="questBox">
+                <section>
+                    <div class="user">
+                        <h2 class="userName">Pytanie dla <span class="uName">Anakond</span></h2>
+                        <h2><span class="timeDesc">Pozostały czas: <span class="timer">30</span></span></h2>
+                        <h2 class="points"><span>15</span></h2>
+                    </div>
+                    <div class="wheels">
+                        <h2 class="wheelDesc">Koła ratunkowe:</h2>
+                        <div class="wheel" id="halfByHalf"><i class="icon-star-half-alt"></i> 50/50</div>
+                        <div class="wheel" id="addTime"><i class="icon-clock"></i> +30s</div>
+                    </div>
+                </section>
+                <section class="here">
+                    <div class="question">
+                        <h3>Ile czasu Kopernik sprawował rolę generalnego administratora biskupstwa warmińskiego?</h3>
+                        <button data-id= 1 type="button" class="answer choose" value="0"><p>Ruszył Słońce, wstrzymał planety</p></button>
+                        <button data-id= 2 type="button" class="answer choose" value="1"><p>Ruszył Słońce, wstrzymał planety</p></button>
+                        <button data-id= 3 type="button" class="answer choose" value="2"><p>Ruszył Słońce, wstrzymał planety</p></button>
+                        <button data-id= 4 type="button" class="answer choose" value="3"><p>Ruszył Słońce, wstrzymał planety</p></button>
+                        <input type="submit" class="answer subButton" value="Następne pytanie">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!--
+    <section class="endGame" style="display: none">
+        <img src="IMG/mainBG.jpg" alt="Mikołaj Kopernik">
+        <div class="winners"></div>
+        <div class="play">
+            <input type="submit" class="endSubmit" value="Zacznij od nowa" id="mainSub">
+       </div>
+    </section>
+       
+
+    <footer>
+        <div class="myFoot"><p>Wykonali: Jakub Trzeciak i Tomasz Szydłowski</p></div>
+    </footer>   
+
+    
+-->
+<script src="mainscr.js"></script>
+</body>
+</html>
