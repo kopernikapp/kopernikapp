@@ -9,7 +9,55 @@ $addTextField = $(".addUser"); // przycisk dodający pola tekstowe
 $count = 1; // ogranicznik dla wpisywania użytkowników
 $open = false; 
 
-/*temporary*/
+function keyboardUp () {
+    $(".fUser").each(function() {
+        if($(this).attr("id") != "num1"){
+            if(!$(this).is(":focus")) {
+                $(this).hide();
+                $inputId = $(this).attr('id');
+                $(".closeInput[name="+$inputId+"]").hide();
+            }
+        }  
+    });
+}
+
+function keyboardDown () {
+    $(".fUser").each(function() {
+        if(!$(this).is(":focus")) {
+            $(this).show();
+            $inputId = $(this).attr('id');
+            $(".closeInput[name="+$inputId+"]").show();
+        }
+    });
+}
+
+$(document).ready(function(){
+    var _originalSize = $(window).width() + $(window).height();
+    $(window).resize(function(){
+        if($(window).width() + $(window).height() != _originalSize){
+            console.log("keyboard show up");
+            keyboardUp();
+            $(".fUser").each(function () {
+                $(this).focus(function () {
+                    keyboardUp();
+                });
+                $(this).blur(function () {
+                    setTimeout(function () {
+                        keyboardDown();
+                    }, 500)
+                });
+            });
+        }
+        else{
+            console.log("keyboard closed");
+            keyboardDown();
+        }
+
+        
+    });
+
+    
+});
 
 $listOpen.each(function(){ //otwieranie instrukcji i autorów
     $(this).click(function() {
@@ -33,6 +81,7 @@ $listOpen.each(function(){ //otwieranie instrukcji i autorów
 $startGameButton.click(function() {
     $(".addUsersPage").fadeIn(200);
     $(".addUsersPage").css("display", "flex");
+    $(".fUser#num1").focus();
     $(".back").click(function() {
         $(".addUsersPage").fadeOut(200);
     })
@@ -57,12 +106,10 @@ $("#nextStep").click(function(){ // po kliknięciu rozpoczyna się gra
 if($count < 5)
 {
     $addTextField.click(function(){
-        if($count < 5) 
-        {
+        if($(".fUser").length < 5) {
             $count++;
             addInput();
-        }
-        else $count = 5;  
+        } 
     })        
 }
         
@@ -76,7 +123,7 @@ function getNames() // pobiera graczy do tablicy
         
 function addInput() // dodaje pola tekstowe
 {
-    $addTextField.attr("href","#num"+$count)
+    $addTextField.attr("href","#num"+$count);
     $addTextField.attr("title","Dodaj gracza");
 
     $newEl = $("<input>");  // dodaje pola tekstowe, nie więcej niż 5
@@ -92,24 +139,59 @@ function addInput() // dodaje pola tekstowe
     $newSpan.html("&times;"); 
     $newSpan.attr("name","num"+$count); 
     
-    if($count <=5)
+    
+
+    if($count <= 5)
     {
-        $formPlace.append($newEl, $newSpan);   
-        deleteInput();
-    } 
+
+        if(($("#num"+($count+1))).length) {
+            $nextInput = $("#num"+($count+1));
+            $($newSpan).insertBefore($nextInput);
+            $($newEl).insertBefore($newSpan);
+            if (deletedInputs.length > 1 && deletedInputs[deletedInputs.length-1] == 4) { 
+                deletedInputs.shift();
+            }
+            else deletedInputs.pop();
+            if(deletedInputs.length != 0) { 
+                $count = deletedInputs[deletedInputs.length-1];
+            }
+            else $count = $(".fUser").length;  
+        }
+        else {   
+            $formPlace.append($newEl, $newSpan);
+            if (deletedInputs.length > 1 && deletedInputs[deletedInputs.length-1] == 4) { 
+                deletedInputs.pop();
+                $count = deletedInputs[deletedInputs.length-1]
+            }
+            else {
+                deletedInputs.shift();
+            }
+        } 
+    }
+    deleteInput();
 }
+
+var deletedInputs = [];
+var max;
 
 function deleteInput()  // usuwa pole tekstowe
 {
     $.each($($newSpan), function(){
         $(this).click(function(){
             $closeButName = $(this).attr("name");
+            $closeButIdNum = parseInt($closeButName[3]);
             $idInp = "#"+ $closeButName;
             $($idInp).remove();
             $(this).remove();
-            $count--;
+            //usuwam pole nr 3, tablica = [2], count = 2, 
+            //usuwam pole nr 2, tablica = [2,3]
+            //usuwam pole nr 4, tablica = [2,3,4]
+            deletedInputs.push($closeButIdNum-1);
+            deletedInputs.sort((a, b) => a - b);
+            max = deletedInputs[deletedInputs.length-1];
+            $count = max;
         })  
-    })  
+    });
 }
 //Koniec sekcji startGame------------------------------
 

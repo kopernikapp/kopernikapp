@@ -210,7 +210,7 @@ input.overPageButton:focus {
 
 .addUsersPage .form {
     width: 95%;
-    margin: 20% auto;
+    margin: 0 auto;
     box-sizing: border-box;
     padding: 20px 15px;
     text-align: center;
@@ -233,6 +233,8 @@ input.overPageButton:focus {
     transition: all 0.2s;
     text-align: center;
     background-color: rgba(255,255,255,0.2);
+    display: inline-flex;
+    justify-content: space-around;
 }
 
 .form input:focus {
@@ -242,8 +244,7 @@ input.overPageButton:focus {
 
 .form .addUser,
 .form .closeInput {
-    width: 10%;
-    margin-left: 3%;
+    display: inline-flex;
     margin-top: 5px;
     font-size: 1.3em;
     background: none;
@@ -676,12 +677,13 @@ button.answer p {
 @media only screen and (min-width: 1024px) {
     /*start page*/
 
+
     .helloBanner {
         width: 70%;
     }
 
     .helloBanner > h1 {
-        font-size: 5em; 
+        font-size: 4em; 
     }
 
     input#startGameButton { 
@@ -761,13 +763,13 @@ button.answer p {
     }
 
     .addUsersPage .form {
-        width: 80%;
-        margin: auto 10%;
+        width: 70%;
+        margin: auto 15%;
     }
 
     .form input[type=text] {
         width: 80%;
-        font-size: 2.3em; 
+        font-size: 1.8em; 
     }
 
     .form .addUser,
@@ -863,6 +865,7 @@ button.answer p {
 }
 
 @media (max-width: 1700px) and (min-width: 1366px) {
+
     /*main game*/
 
     h2.userName {
