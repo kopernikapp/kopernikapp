@@ -34,29 +34,17 @@ function keyboardDown () {
 $(document).ready(function(){
     var _originalSize = $(window).width() + $(window).height();
     $(window).resize(function(){
-        if($(window).width() + $(window).height() != _originalSize){
-            console.log("keyboard show up");
-            keyboardUp();
-            $(".fUser").each(function () {
-                $(this).focus(function () {
-                    keyboardUp();
-                });
-                $(this).blur(function () {
-                    setTimeout(function () {
-                        keyboardDown();
-                    }, 500)
-                });
-            });
-        }
-        else{
-            console.log("keyboard closed");
-            keyboardDown();
-        }
-
-        
+        $(".fUser").each(function() {
+            if($(window).width() + $(window).height() != _originalSize || $(this).is(":focus")){
+                console.log("keyboard show up");
+                keyboardUp();
+            }
+            else{
+                console.log("keyboard closed");
+                keyboardDown();
+            }
+        })   
     });
-
-    
 });
 
 $listOpen.each(function(){ //otwieranie instrukcji i autorów
