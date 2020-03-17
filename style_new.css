@@ -221,6 +221,18 @@ input.overPageButton:focus {
     font-size: 1.6em;
 }
 
+.userField {
+    width: 100%;
+    height: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.userField[name="userField1"] {
+    display: flex !important;
+}
+
 .form input[type=text] {
     width: 80%;
     margin-top: 15px;
@@ -233,8 +245,6 @@ input.overPageButton:focus {
     transition: all 0.2s;
     text-align: center;
     background-color: rgba(255,255,255,0.2);
-    display: inline-flex;
-    justify-content: space-around;
 }
 
 .form input:focus {
@@ -244,7 +254,6 @@ input.overPageButton:focus {
 
 .form .addUser,
 .form .closeInput {
-    display: inline-flex;
     margin-top: 5px;
     font-size: 1.3em;
     background: none;

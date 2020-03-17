@@ -51,7 +51,27 @@
             <div class="addUsersPage">
                 <form class="form">
                     <p class="userPar">Wprowadź uczestników</p>
-                    <input type="text" name="number1" class="fUser" placeholder="Podaj 1 uczestnika" id="num1"><a href="#num2" class="addUser" title="Dodaj gracza">&#43;</a>
+                    <div class="userField" name="userField1">   
+                        <input type="text" name="number1" class="fUser" placeholder="Podaj 1 uczestnika" id="num1">
+                        <a href="#num2" class="addUser" title="Dodaj gracza">&#43;</a>
+                    </div>
+                    <div class="userField hidden" name="userField2">
+                        <input type="text" name="number2" class="fUser" placeholder="Podaj 2 uczestnika">
+                        <span title="Usuń gracza" class="closeInput" name="num2">&times;</span>
+                    </div>
+                    <div class="userField hidden" name="userField3">
+                        <input type="text" name="number3" class="fUser" placeholder="Podaj 3 uczestnika">
+                        <span title="Usuń gracza" class="closeInput" name="num3">&times;</span>
+                    </div>
+                    <div class="userField hidden" name="userField4">
+                        <input type="text" name="number4" class="fUser" placeholder="Podaj 4 uczestnika">
+                        <span title="Usuń gracza" class="closeInput" name="num4">&times;</span>
+                    </div>
+                    <div class="userField hidden" name="userField5">
+                        <input type="text" name="number5" class="fUser" placeholder="Podaj 5 uczestnika">
+                        <span title="Usuń gracza" class="closeInput" name="num5">&times;</span>
+                    </div>
+
                 </form>
                 <input type="button" value="Dalej" id="nextStep">
                 <div class="back"></div>
