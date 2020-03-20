@@ -74,17 +74,27 @@ $startGameButton.click(function() {
 var notValidate = false;
 $("#nextStep").click(function(){ // po kliknięciu rozpoczyna się gra
     $(".fUser").each(function() {
-        if($(this).val() != "" && ($(this).val().length >= 2 && $(this).val().length <= 7)) 
-        {
-            notValidate = false;
-            getNames();
-            setUsersInfo();
-            $(".mainGame").fadeIn("fast");
-            /*startGame();  */
-        } 
-        else notValidate = true;
+        if(!($(this).closest(".userField").hasClass("hidden")) || $(this).closest(".userField").attr("name") == "userField1") { // not working
+            if($(this).val() == "") {
+                notValidate = true;
+                if($(this).val().length < 2 && $(this).val().length > 7) {
+                    notValidate = true;
+                }
+                else notValidate = false;
+            }
+            else notValidate = false;
+        }
     })
-    if(notValidate) alert("Nazwy graczy muszą się składać z od 2 do 7 znaków.")
+
+    if(notValidate) {
+        alert("Nazwy graczy muszą zawierać od 2 do 7 znaków.");
+    }
+    else {
+        getNames();
+        setUsersInfo();
+        $(".mainGame").fadeIn("fast");
+        /*startGame();  */
+    }
 })
 
 $addTextField.click(function(){
