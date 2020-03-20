@@ -1,5 +1,4 @@
-{
-    "name":"Szlakiem Mikołaja Kopernika - quiz wiedzy",
+{   "name":"Szlakiem Mikołaja Kopernika - quiz wiedzy",
     "short_name": "Kopernik The Game",
     "start_url": "index/html?utm_source=homescreen",
     "scope": "./",
@@ -17,5 +16,5 @@
         ],
     "theme_color":"#ffffff",
     "background_color":"#ffffff",
-    "display":"s    "
+    "display":"standalone"
 }
